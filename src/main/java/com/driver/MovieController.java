@@ -34,7 +34,7 @@ public class MovieController {
     }
 
     @GetMapping("/get-movie-by-name")
-    ResponseEntity<Movie> getMovieByName(@RequestParam("name") String searchName) {
+    public ResponseEntity<Movie> getMovieByName(@RequestParam("name") String searchName) {
         Movie movie = movieService.getMovieByName(searchName);
         if (movie == null)
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);

@@ -10,14 +10,14 @@ public class MovieRepository {
     HashMap<String, Director> directorDb = new HashMap<>();
     HashMap<Director, List<Movie>> movieDirectorDb = new HashMap<>();
 
-    String addMovieInDb(Movie movie) {
+    public String addMovieInDb(Movie movie) {
         String name = movie.getName();
         movieDb.put(name, movie);
         return "Successfully added the movie";
     }
 
 
-    String addDirectorInDb(Director director) {
+    public String addDirectorInDb(Director director) {
         String name = director.getName();
         directorDb.put(name, director);
         return "Successfully added the director";

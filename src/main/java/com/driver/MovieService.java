@@ -16,7 +16,7 @@ public class MovieService {
         return movieRepository.addMovieInDb(movie);
     }
 
-    String addDirector(Director director) {
+    public String addDirector(Director director) {
         return movieRepository.addDirectorInDb(director);
 
     }
