@@ -24,8 +24,7 @@ public class MovieRepository {
     }
 
     public Movie getMovieByNameFromDb(String searchName) {
-        if (movieDb.containsKey(searchName)) return movieDb.get(searchName);
-        else return null;
+        return movieDb.getOrDefault(searchName, null);
 
     }
 
@@ -94,7 +93,7 @@ public class MovieRepository {
         }
         for (Director director : directors
              ) {
-            directorDb.remove(director.getName());
+            movieDirectorDb.remove(director);
         }
         return "Successfully deleted all directors and movies";
     }
