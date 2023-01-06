@@ -84,4 +84,14 @@ public class MovieController {
          return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
      return new ResponseEntity<>(response, HttpStatus.OK);
  }
+
+ @GetMapping("/get-director-from-movieName")
+    public ResponseEntity<String> getDirectorFromMovieName(@RequestParam("movieName") String movieName){
+        String response = movieService.getDirectorFromMovieName(movieName);
+     if (response == null)
+         return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+     return new ResponseEntity<>(response, HttpStatus.OK);
+
+ }
+
 }

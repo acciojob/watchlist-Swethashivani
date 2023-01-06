@@ -80,7 +80,7 @@ public class MovieRepository {
     }
 
     public String deleteAllDirectorsFromDb() {
-        List<Director> directors= new ArrayList<>();
+        List<Director> directors = new ArrayList<>();
         for (Map.Entry<Director, List<Movie>> set :
                 movieDirectorDb.entrySet()) {
             List<Movie> movieList = set.getValue();
@@ -88,13 +88,28 @@ public class MovieRepository {
                 movieDb.remove(movie.getName());
             }
 
-           directors.add(set.getKey());
+            directors.add(set.getKey());
             directorDb.remove(set.getKey().getName());
         }
         for (Director director : directors
-             ) {
+        ) {
             movieDirectorDb.remove(director);
         }
         return "Successfully deleted all directors and movies";
+    }
+
+    public String getDirectorFromMovieNameFromDb(String movieName) {
+        String directorName=null;
+        for (Map.Entry<Director, List<Movie>> set :
+                movieDirectorDb.entrySet()) {
+            List<Movie> movieList = set.getValue();
+            for (Movie movie : movieList) {
+                if (movie.getName().equals(movieName)) {
+                    directorName=set.getKey().getName();
+                    break;
+                }
+            }
+        }
+        return directorName;
     }
 }
