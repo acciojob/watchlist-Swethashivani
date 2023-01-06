@@ -30,11 +30,11 @@ public class MovieService {
     }
 
     public String addMovieDirectorPair(String movieName, String directorName) {
-        return movieRepository.addMovieDirectorPairFromDb(movieName,directorName);
+        return movieRepository.addMovieDirectorPairFromDb(movieName, directorName);
     }
 
     public List<String> getMoviesByDirectorName(String directorName) {
-       return movieRepository.getMoviesByDirectorNameFromDb(directorName);
+        return movieRepository.getMoviesByDirectorNameFromDb(directorName);
 
     }
 
@@ -49,4 +49,11 @@ public class MovieService {
     public String deleteAllDirectors() {
         return movieRepository.deleteAllDirectorsFromDb();
     }
+
+
+    public String getDirectorFromMovieName(String movieName) {
+        return movieRepository.getDirectorFromMovieNameFromDb(movieName);
+
+    }
 }
+
